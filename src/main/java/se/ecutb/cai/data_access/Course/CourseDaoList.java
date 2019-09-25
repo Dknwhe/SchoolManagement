@@ -14,8 +14,11 @@ public class CourseDaoList implements CourseDao {
 
     @Override
     public Course saveCourse(Course course) {
-        courses.add(course);
-        return course;
+        if (!courses.contains(course)) {
+            courses.add(course);
+            return course;
+        }
+        return null;
     }
 
     @Override

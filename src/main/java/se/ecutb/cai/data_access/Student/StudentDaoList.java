@@ -12,8 +12,12 @@ public class StudentDaoList implements StudentDao {
 
     @Override
     public Student saveStudent(Student student) {
-        students.add(student);
-        return student;
+        if (!students.contains(student)) {
+            students.add(student);
+            return student;
+        }
+
+        return null;
     }
 
     @Override

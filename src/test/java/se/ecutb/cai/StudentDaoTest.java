@@ -1,53 +1,64 @@
 package se.ecutb.cai;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import se.ecutb.cai.data_access.Student.Student;
-import se.ecutb.cai.data_access.Student.StudentDao;
 import se.ecutb.cai.data_access.Student.StudentDaoList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class StudentDaoTest {
 
-    private StudentDao testObject = new StudentDaoList();
+    private StudentDaoList testObject;
     private Student studentTest;
-    private int studentId;
 
     @Before
     public void setUp() {
         studentTest = new Student(1, "cai","cai.se@lise.se","hemma");
-        testObject.saveStudent(studentTest);
-        studentId = studentTest.getId();
+        testObject = new StudentDaoList();
     }
 
     @Test
     public void saveStudent_test() {
-        Student expected = new Student(2,"test","test@mai.se","hejhej");
-        assertEquals(expected, testObject.saveStudent(expected));
+        Student expected = studentTest;
+        Student actual = testObject.saveStudent(studentTest);
+        Assert.assertEquals(expected, actual);
+        assertNull(testObject.saveStudent(studentTest));
 
     }
 
     @Test
     public void find_email_test() {
-        assertNull(testObject.findByEmail("12@live.se"));
+        testObject.saveStudent(studentTest);
+        Student expected = studentTest;
+        Student actual = testObject.findByEmail("cai.se@lise.se");
+        Assert.assertEquals(expected, actual);
+        assertNull(testObject.findByEmail(" "));
 
     }
 
     @Test
     public void find_name_test() {
-        String name = "hej";
-        List<Student> test = testObject.findByName(name);
-        for (Student s : test) {
-            assertEquals(name, s.getName());
-        }
+        testObject.saveStudent(studentTest);
+        List<Student> list = new ArrayList<>();
+        list.add(studentTest);
+        Assert.assertEquals(list, testObject.findByName("cai"));
+
+
     }
 
     @Test
     public void find_id_test() {
-        assertEquals(studentTest, testObject.findById(studentId));
+        testObject.saveStudent(studentTest);
+        Student expected = studentTest;
+        Student actual = testObject.findById(1);
+        Assert.assertEquals(expected, actual);
+        assertNull(testObject.findById(0));
+
     }
 
     @Test
@@ -59,6 +70,6 @@ public class StudentDaoTest {
     @Test
     public void delete_student_test() {
         boolean delete = testObject.deleteStudent(studentTest);
-        assertTrue(delete);
+        Assert.assertFalse(delete);
     }
 }

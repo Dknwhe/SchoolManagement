@@ -22,11 +22,14 @@ public class Course {
 
 
     public void register(Student student ){
-        this.students.add(student);
+        if (!students.contains(student)) {
+            this.students.add(student);
+
+        }
     }
 
     public void unregister(Student student) {
-        this.students.remove(student);
+        students.remove(student);
     }
 
     public int getId() {
