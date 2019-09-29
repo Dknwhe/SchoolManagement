@@ -4,6 +4,7 @@ import se.ecutb.cai.data_access.Student.Student;
 import se.ecutb.cai.data_access.Student.StudentDaoList;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
@@ -19,6 +20,7 @@ public class Course {
         this.courseName = courseName;
         this.startDate = startDate;
         this.weekDuration = weekDuration;
+        this.students = new ArrayList<>();
 
     }
 
@@ -30,9 +32,7 @@ public class Course {
     }
 
     public void unregister(Student student) {
-        if (students.contains(student)) {
-            students.remove(student);
-        }
+        students.remove(student);
 
     }
 

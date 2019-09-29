@@ -6,7 +6,8 @@ import org.junit.Test;
 import se.ecutb.cai.data_access.Course.Course;
 import se.ecutb.cai.data_access.Student.Student;
 import java.time.LocalDate;
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CourseTest {
@@ -16,8 +17,8 @@ public class CourseTest {
 
     @Before
     public void setUp() {
-        courseObject = new Course(1,"Java",LocalDate.parse("2019-09-26"),15);
-        studentObject = new Student(2,"cai","mail@live.se","hemma");
+        courseObject = new Course(1, "Java", LocalDate.parse("2019-09-26"), 15);
+        studentObject = new Student(2, "cai", "mail@live.se", "hemma");
     }
 
     @Test
@@ -29,11 +30,14 @@ public class CourseTest {
 
     @Test
     public void unregister_test() {
+        Student temp = new Student(1, "test", "email", "address");
+        List<Student> expected = new ArrayList<>();
+        expected.add(temp);
+        expected.remove(temp);
         courseObject.register(studentObject);
         courseObject.unregister(studentObject);
-        Student expected = studentObject;
-        Assert.assertNull(courseObject.getStudents());
-
-
+        Assert.assertEquals(expected, courseObject.getStudents());
     }
 }
+
+

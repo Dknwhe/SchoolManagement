@@ -3,6 +3,7 @@ package se.ecutb.cai.data_access.Course;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class CourseDaoList implements CourseDao {
 
@@ -12,7 +13,7 @@ public class CourseDaoList implements CourseDao {
     }
 
 
-    @Override
+        @Override
     public Course saveCourse(Course course) {
         if (!courses.contains(course)) {
             courses.add(course);
