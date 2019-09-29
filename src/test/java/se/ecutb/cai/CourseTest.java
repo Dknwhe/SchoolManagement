@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class CourseTest {
 
     private Course courseObject;
@@ -25,12 +26,16 @@ public class CourseTest {
     public void register_test() {
         courseObject.register(studentObject);
         Student expected = studentObject;
-        Student actual = new Student(1,"hej","mail@lise.se","henna");
-        Assert.assertEquals(expected, actual);
+        Student actual = new Student(3,"hej","mail@live.se","hemma");
+        Assert.assertNotNull(String.valueOf(expected), actual);
     }
 
     @Test
     public void unregister_test() {
+        courseObject.unregister(studentObject);
+
+
+
 
 
     }
