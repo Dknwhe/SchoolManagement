@@ -1,6 +1,8 @@
 package se.ecutb.cai.data_access.Course;
 
 import se.ecutb.cai.data_access.Student.Student;
+import se.ecutb.cai.data_access.Student.StudentDaoList;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -28,7 +30,10 @@ public class Course {
     }
 
     public void unregister(Student student) {
-           students.remove(student);
+          if (students.contains(student)) {
+              students.remove(student);
+              System.out.println(student + " removed ");
+          }
 
     }
 

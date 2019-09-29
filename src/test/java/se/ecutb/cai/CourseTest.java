@@ -14,12 +14,13 @@ import java.util.List;
 public class CourseTest {
 
     private Course courseObject;
-    private Student studentObject;
+    private Student studentObject, student1;
 
     @Before
     public void setUp() {
         courseObject = new Course(1,"Java",LocalDate.parse("2019-09-26"),15);
         studentObject = new Student(2,"cai","mail@live.se","hemma");
+        student1 = new Student(0,"null", "null", "noll");
     }
 
     @Test
@@ -32,7 +33,9 @@ public class CourseTest {
 
     @Test
     public void unregister_test() {
-        courseObject.unregister(studentObject);
+
+
+
 
 
 
