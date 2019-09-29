@@ -24,16 +24,15 @@ public class Course {
 
 
     public void register(Student student ) {
-        if (students != null) {
+        if (!students.contains(student)) {
             students.add(student);
         }
     }
 
     public void unregister(Student student) {
-          if (students.contains(student)) {
-              students.remove(student);
-              System.out.println(student + " removed ");
-          }
+        if (students.contains(student)) {
+            students.remove(student);
+        }
 
     }
 
