@@ -24,7 +24,6 @@ public class Course {
 
     }
 
-
     public void register(Student student ) {
         if (!students.contains(student)) {
             students.add(student);
