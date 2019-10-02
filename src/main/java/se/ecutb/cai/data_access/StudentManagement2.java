@@ -82,7 +82,8 @@ public class StudentManagement2 {
                         course3.register(student3);
                         System.out.println(student3);
                         System.out.println("Save Student: Enter");
-                        System.out.println(scanner.nextLine() + studentDaoList.saveStudent(student3) + "\nSuccessfully" +  "\nMenu 3");
+                        System.out.println(scanner.nextLine() + studentDaoList.saveStudent(student3)
+                                                              + "\nSuccessfully" +  "\nMenu 3");
 
                     } else if (menu2.equalsIgnoreCase("2"))
                     {
@@ -92,7 +93,8 @@ public class StudentManagement2 {
 
                         courseDaoList.findById(getCourseID);
                         System.out.println(course3.getCourseName() + "\nDetails: Enter");
-                        System.out.println("Remove Student: \n "+ scanner.nextLine()+  "-" + courseDaoList.saveCourse(course3) + "\nPress Enter to Remove");
+                        System.out.println("Remove Student: \n "+ scanner.nextLine()+  "-"
+                                + courseDaoList.saveCourse(course3) + "\nPress Enter to Remove");
                         course3.unregister(student3);
                         System.out.println(scanner.nextLine() + "Successfully\n" + "\nMenu 3");
                     }
