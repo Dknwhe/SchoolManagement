@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
-
+    private static int courseCounter;
     private int id;
     private String courseName;
     private LocalDate startDate;
@@ -21,6 +21,11 @@ public class Course {
         this.startDate = startDate;
         this.weekDuration = weekDuration;
         this.students = new ArrayList<>();
+
+    }
+    public Course(String courseName, LocalDate startDate, int courseDuration) {
+
+        this (++courseCounter,courseName,startDate,courseDuration);
 
     }
 

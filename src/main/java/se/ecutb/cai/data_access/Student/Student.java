@@ -1,7 +1,7 @@
 package se.ecutb.cai.data_access.Student;
 
 public class Student {
-
+    private static int studentCounter;
     private int id;
     private String name;
     private String email;
@@ -13,6 +13,11 @@ public class Student {
         this.name = name;
         this.email = email;
         this.adress = adress;
+    }
+
+    public Student(String name, String email, String address) {
+
+        this(++studentCounter, name, email, address);
     }
 
     public int getId() {

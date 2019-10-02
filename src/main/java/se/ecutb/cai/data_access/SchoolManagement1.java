@@ -53,7 +53,7 @@ public class SchoolManagement1 {
                         System.out.println("Student Address: ");
                         String studentAddress = scanner.nextLine();
                         Student createStudent = new Student(studentId, studentName, studentEmail, studentAddress);
-                        System.out.println("Student Vaild " + createStudent   );
+                        System.out.println("Student Valid " + createStudent   );
                     } else if (choose.equalsIgnoreCase("2")) ;
                 {
                         System.out.println("Course Name");
